@@ -34,12 +34,12 @@ exports.getActiveWindow = function(callback,repeats,interval){
 
   //Obtain successful response from script
   ls.stdout.on('data', function(stdout){
-    callback(null, reponseTreatment(stdout.toString()));
+    callback(reponseTreatment(stdout.toString()));
   });
 
   //Obtain error response from script
   ls.stderr.on("data",function(stderr){
-    callback(stderr);
+    callback(null);
   });
 
   ls.stdin.end();
